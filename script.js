@@ -253,7 +253,7 @@ form.addEventListener("input", (e) => {
     if (captchaInputValue == captchaRandomValue) {
         /* getCaptcha(); */
         document.getElementById('captcha_input').value = "";
-        getFormData();
+    
 
     } else {
         /* alert("falsches Captcha eingegeben"); */
