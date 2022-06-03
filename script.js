@@ -1,3 +1,7 @@
+/**
+ * Validierung und Captcha des Formulares
+ */
+
 
 
 // --== Variabeln/Konstanten deklarieren und initialisieren ==--
@@ -44,11 +48,6 @@ const captchaInput = document.getElementById("captcha_input")
 
 
 
-
-
-
-
-
 /**
  * Funktion die prüft ob alle Funktionen keinen Fehler melden.
  */
@@ -86,10 +85,10 @@ form.addEventListener("input", (e) => {
     console.log(ort)
     let errorsOrt = findErrorsOrt(ort)
 
-    let  captchaInputValue = captchaInput.value
-    console.log( captchaInputValue)
+    let captchaInputValue = captchaInput.value
+    console.log(captchaInputValue)
 
-    let errorsSum = 0
+    let errorsSum = 0   //Fehler "Counter" für Validierungsfehler 
 
 
     // Vorname
@@ -246,36 +245,26 @@ form.addEventListener("input", (e) => {
 
 
     // Captcha
-    /* Wenn in Captcha Funktion ein Fehler gemacht wird.. */
-    console.log(" captchaInputValue: " +  captchaInputValue);
-    /* captcha_input = document.getElementById('captcha_input').value; */
-   /*  console.log("captcha_input: " + captcha_input); */
+    /* Wenn in Captcha Funktion ein Fehler gemacht wird zählt "errorsSum" eins hoch. */
+    console.log(" captchaInputValue: " + captchaInputValue);
     if (captchaInputValue == captchaRandomValue) {
-        /* getCaptcha(); */
         document.getElementById('captcha_input').value = "";
-    
-
     } else {
-        /* alert("falsches Captcha eingegeben"); */
         errorsSum += 1
-        /* getCaptcha(); */
     }
 
 
+    console.log('errorsSum ist: ' + errorsSum) // Ausgabe Fehlersumme in der Konsole
 
-
-    console.log('errorsSum ist: ' + errorsSum)
 
     /* Prüft ob es Null Fehler hat, wenn ja -> Wird das Grau (ID) und "onclick" entfernt */
     if (errorsSum == 0) {
         const submitButton = document.getElementById('submitButtonGrey');
 
-        // ID attribute entfernen
+        // ID attribute entfernen und Aufhebung der Deaktivierung des Buttons
         submitButton.removeAttribute('id');
         submitButton.disabled = false;
-
     }
-
 })
 
 
@@ -291,20 +280,21 @@ form.addEventListener("input", (e) => {
  * @param {*} maxLength Länge des Captchas
  * @returns             Alert Correct / Incorrect 
  */
-
- function getRandIndex(maxLength) {
+function getRandIndex(maxLength) {
     return Math.floor(Math.random() * maxLength);
 }
 
 
+let captchaRandomValue; //Zufälliger Captcha Wert
 
-var captchaRandomValue;
 
-
+/**
+ * Generation des Captcha Textes
+ */
 function getCaptcha() {
-    var canvas = document.getElementById('canvas');
-    var pen = canvas.getContext('2d');
-    var captch = Math.random().toString(36).substring(2, 10);
+    let canvas = document.getElementById('canvas');
+    let pen = canvas.getContext('2d');
+    let captch = Math.random().toString(36).substring(2, 10);
 
     pen.font = "30px Grape Nuts";
     pen.fillStyle = "white";
@@ -322,28 +312,6 @@ function getCaptcha() {
     captch = captch.split('').join(' ');
     pen.fillText(captch, 40, 40);
 }
-
-/* function checkIt() {
-    console.log("captchaValue: " + captchaValue);
-    captcha_input = document.getElementById('captcha_input').value;
-    console.log("captcha_input: " + captcha_input);
-    if (captcha_input == captchaRandomValue) {
-        getCaptcha();
-        document.getElementById('captcha_input').value = "";
-        getFormData();
-
-    } else {
-        alert("falsches Captcha eingegeben");
-        getCaptcha();
-    }
-}
- */
-
-
-
-
-
-
 
 
 
@@ -368,15 +336,6 @@ function getFormData() {
         'Ort: ' + ortInput.value + '\n'
     )
 }
-//}
-
-
-
-
-
-
-
-
 
 
 
@@ -515,21 +474,3 @@ function findErrorsOrt(ort) {
     }
     return errorMessagesOrt
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
