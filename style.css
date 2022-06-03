@@ -1,0 +1,128 @@
+html {
+    height: 1000px;
+}
+
+body {
+    height: 1000px;
+    background-color: #c67cad;
+}
+
+h1 {
+    font-family: Grape Nuts;
+    font-size: 36px;
+    color: white;
+}
+
+form {
+    height: 1000px;
+    width: 550px;
+
+    position: absolute;
+    top: 200px;
+    left: 700px;
+    transform: translate(-200px, -200px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+
+input {
+    height: 40px;
+    width: 190px;
+    margin: 10px;
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 1000px;
+    background-color: #d20d83;
+    color: white;
+    font-size: 18px;
+    font-family: Grape Nuts;
+
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.534);
+}
+
+input:hover {
+    background-color: #38002b;
+}
+
+input:focus {
+    outline: none;
+    width: 220px;
+    background-color: #38002b;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+    margin-top: 20px;
+    font-family: Grape Nuts;
+
+    background-color: #38002b;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 1000px;
+    transition: 0.3s;
+}
+
+#submitButtonGrey {
+    height: 50px;
+    width: 100px;
+    margin-top: 20px;
+    font-family: Grape Nuts;
+
+    background-color: #524d50;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 1000px;
+    transition: 0.3s;
+}
+
+
+
+button:hover {
+    width: 135px;
+}
+
+button:focus {
+    outline: none;
+    width: 135px;
+}
+
+.red-error-message {
+    color: rgb(103, 1, 23);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    
+}
+
+.red-input {
+    border: 2px solid rgb(103, 1, 23);
+    text-align: center;
+    
+}
+
+.green-message {
+    color: rgb(51, 136, 25);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+
+.captchaText{
+    font-family: Grape Nuts;
+}
+
+
+

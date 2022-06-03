@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script type="text/javascript" src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Grape Nuts">
+
+</head>
+
+<body onload="getCaptcha()">
+
+<!-- Hier beginnt das Formular -->
+    <form id="form" autocomplete="off">
+        <h1>Formular</h1>
+        <input id="vorname_input" type="text" placeholder="Vorname">
+        <div id="message-container-vorname"></div>
+		<input id="nachname_input" type="text" placeholder="Nachname">
+        <div id="message-container-nachname"></div>
+		<input id="geburtstag_input" type="date" placeholder="Geburtstag">
+        <div id="message-container-geburtstag"></div>
+		<input id="email_input" type="text" placeholder="E-Mail">
+        <div id="message-container-email"></div>
+        <input id="phone_input" type="tel" placeholder="Telefonnummer">
+        <div id="message-container-phone"></div>
+		<input id="adresse_input" type="text" placeholder="Adresse">
+        <div id="message-container-adresse"></div>
+		<input id="plz_input" type="text" placeholder="PLZ">
+        <div id="message-container-plz"></div>
+		<input id="ort_input" type="text" placeholder="Ort">
+        <div id="message-container-ort"></div>
+
+
+
+
+<!-- Hier folgt das ReCaptcha -->
+<table style="border: 2px solid #38002b; padding: 7px 7px 7px 7px;">
+    <tr>
+        <td class="captchaText">Captcha</td>
+
+            <td>
+                <canvas width="220" height="60" style="border: 2px solid #d20d83"; id="canvas"> </canvas>
+            </td>
+            <td>
+                <button type="button" onclick="getCaptcha()">Neu laden</button>
+            </td>
+    </tr>
+
+    <tr>
+        <td class="captchaText">Captcha eingeben</td>
+        <td><input type="text" size="30" id="captcha_input"></td>
+    </tr>
+
+    </table>
+    
+
+
+
+<!-- Hier folgt der "Abschicken" Button -->
+        <!-- <button id="submitButtonGrey" onclick="checkIt()">Abschicken</button> -->
+        <button id="submitButtonGrey" onclick="getFormData()" disabled>Abschicken</button>
+
+
+    </form>
+
+</body>
+
+
+</html>
